@@ -23,11 +23,11 @@ public class cards {
 	}
 	
 	public card cardSelect(){
-		Random random=new Random();
-		int i=random.nextInt(3);
-		int j=random.nextInt(12);
 		card c=new card();
 		while(true){
+			Random random=new Random();
+			int i=random.nextInt(3);
+			int j=random.nextInt(12);
 			if(deck.get(suits[i], j).getCardUsed()!=true){
 				c=deck.get(suits[i],j);
 				deck.get(suits[i], j).cardSelected();

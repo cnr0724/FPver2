@@ -87,7 +87,7 @@ public class PlayFrame extends JFrame {
 		betTF.addActionListener(new ActionListener(){
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent evt){
-				if(Integer.parseInt(betTF.getText())<=pl.getMon()){
+				if((Integer.parseInt(betTF.getText())<=pl.getMon())&((Integer.parseInt(betTF.getText())>0))){
 					pl.setBet(Integer.parseInt(betTF.getText()));
 					bet.hide();
 					betTF.hide();
@@ -110,7 +110,7 @@ public class PlayFrame extends JFrame {
 		getContentPane().add(total,"Center");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(300,200,900,600);
+		setBounds(300,150,900,600);
 		setVisible(true);
 	}
 	
@@ -118,22 +118,18 @@ public class PlayFrame extends JFrame {
 	private class ButtonClickListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			command=e.getActionCommand();
-			if(command.equals("return")){
-				dispose();
-			}else if(command.equals("Hit")){
+			if(command.equals("Hit")){
 			}else if(command.equals("Stop playing")&end==true){
 				checked=true;
 				game=false;
-				System.out.println("Stop playing");
 			}else if(command.equals("Play again")&end==true){
 				checked=true;
 				game=true;
 				end=false;
-				System.out.println("Again");
 			}else if(command.equals("Save Yes")&end==true){
 				savchecked=true;
 				sav=true;
-				System.out.println("Save");
+				System.out.println("Saved");
 			}
 		}
 	}

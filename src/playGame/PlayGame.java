@@ -37,23 +37,22 @@ public class PlayGame {
 				int stayNum=0;
 				RecordReader checking=new RecordReader(filename);
 				
-				while(p.playerName==null){
-					String playername=pf.getName();
-					p.setPlayerName(playername);
-				}
+				while(pf.pl.playerName==null){}
+				String playername=pf.pl.playerName;
+				p.setPlayerName(playername);
 				if(checking.text.contains(pf.pl.playerName)){
 					int i=0;
 					int num=0;
 					String[] words=checking.text.split("\n");
 					for(;i<words.length;i++){
-						if(words[i]==p.playerName){
+						if(words[i].equals(pf.pl.playerName)){
 							num=i;
 						}
 					}
-					String mOney=words[num+1];
-					p.setMon(Integer.parseInt(mOney));
-					pf.pl.setMon(Integer.parseInt(mOney));
+					p.setMon(Integer.parseInt(words[num+1]));
+					pf.pl.setMon(Integer.parseInt(words[num+1]));
 				}
+				System.out.println("Your current money is "+pf.pl.getMon());
 				while(p.getBet()==0){
 					int b=pf.pl.getBet();
 					if(b>0&b<p.getMon()){
@@ -88,9 +87,8 @@ public class PlayGame {
 						tie=true;
 					}
 				
-					while(select==null){
-						select=pf.getCom();
-					}
+					while(pf.getCom()==null){}
+					select=pf.getCom();
 				
 					if(select=="Hit"){
 						card=deck.cardSelect();
@@ -121,9 +119,10 @@ public class PlayGame {
 					}
 					pf.resetCom();		
 				}
+				
+				System.out.println("The sum of the computer's deck was "+c.getSum());
 			
 				if(tie==true){
-					p.setBet(0);
 					System.out.println("It's a tie");
 				}else if(p.getSum()>21&c.getSum()>21){
 					int pla=p.getSum()-21;
@@ -153,28 +152,22 @@ public class PlayGame {
 					}
 				}
 				
-				System.out.println(p.playerName+"'s current money1 is "+p.getMon());
+				System.out.println(pf.pl.playerName+"'s current money is "+p.getMon());
 				pf.gameEnd();
-				System.out.println(pf.checked);
 				pf.askingAfterEnd();
 				while(pf.savchecked==false){}
 				boolean sav=pf.sav;
+				
 				if(sav){
-					mon=p.getMon();
-					nam=p.playerName;
+					mon=pf.pl.getMon();
+					nam=pf.pl.playerName;
 					RecordWriter rw=new RecordWriter(filename,checking.text,nam,mon);
 				}
-				play=false;
+				
 				while(pf.checked==false){}
 				play=pf.game;
-				if(play==false){
-					pf.dispose();
-				}
+				pf.dispose();
 			}
-		}else if(key==2){
-			//기록 조회
-				SearchFrame sf1=new SearchFrame();
-			
 		}
 	}
 

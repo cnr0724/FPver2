@@ -10,9 +10,6 @@ public class Player {
 	
 	public void setPlayerName(String name){
 		playerName=name;
-		if(name!=null){
-			System.out.println(playerName);
-		}
 	}
 	
 	public void setBet(int b){

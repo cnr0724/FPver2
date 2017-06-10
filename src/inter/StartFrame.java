@@ -15,7 +15,7 @@ public class StartFrame extends JFrame{
 		setTitle("Blackjack with the computer");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
-		setBounds(300,200,900,600);
+		setBounds(300,150,900,600);
 		JPanel p=new JPanel();
 		p.setLayout(null);
 		p.setBackground(Color.WHITE);
@@ -27,21 +27,16 @@ public class StartFrame extends JFrame{
 		label.setBackground(Color.WHITE);
 		label.setFont(font);
 		JButton b1=new JButton("1. 게임 시작");
-		b1.setBounds(250,250,400,80);
+		b1.setBounds(250,320,400,80);
 		b1.setActionCommand("1");
 		b1.addActionListener(new ButtonClickListener());
-		JButton b2=new JButton("2. 기록 조회");
-		b2.setBounds(250,330,400,80);
-		b2.setActionCommand("2");
-		b2.addActionListener(new ButtonClickListener());
-		JButton b3=new JButton("3. 그만하기");
-		b3.setBounds(250, 410, 400, 80);
+		JButton b3=new JButton("2. 그만하기");
+		b3.setBounds(250, 400, 400, 80);
 		b3.setActionCommand("3");
 		b3.addActionListener(new ButtonClickListener());
 
 		p.add(label,"Center");
 		p.add(b1);
-		p.add(b2);
 		p.add(b3);
 
 		getContentPane().add(p);
@@ -54,9 +49,6 @@ public class StartFrame extends JFrame{
 			String command=e.getActionCommand();
 			if(command.equals("1")){
 				signal=1;
-				dispose();
-			}else if(command.equals("2")){
-				signal=2;
 				dispose();
 			}else if(command.equals("3")){
 				signal=3;

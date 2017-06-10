@@ -24,14 +24,11 @@ public class RecordWriter {
 	        }else{
 	        	data=name+"\n"+mon+"\n";
 	        }
-			System.out.println(data);
 			suc=true;
-			System.out.println("Wrote");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(data);
 		bw.write(data);
 		bw.close();
 	}
