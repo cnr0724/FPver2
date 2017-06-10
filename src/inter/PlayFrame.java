@@ -100,7 +100,6 @@ public class PlayFrame extends JFrame {
 		cardPanel.add(ButCard);
 		cardPanel.add(WinLose,"East");
 		cardPanel.add(plaCard,"South");
-//		cardPanel.add(returning);
 		panel.add(name,"South");
 		panel.add(nameTextField,"South");
 		panel.add(bet,"South");

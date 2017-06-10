@@ -60,6 +60,8 @@ public class PlayGame {
 					}
 				}
 				pf.panel.hide();
+				
+				//Start a game
 			
 				//make a deck
 				deck.newDeck();
